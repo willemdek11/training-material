@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "Metatranscriptomics analysis using microbiome RNA-seq data (short)",
     "format-version": "0.1",
-    "name": "Workflow 2: Community Profile (imported from uploaded file)",
+    "name": "Workflow 2: Community Profile",
     "steps": {
         "0": {
             "annotation": "",

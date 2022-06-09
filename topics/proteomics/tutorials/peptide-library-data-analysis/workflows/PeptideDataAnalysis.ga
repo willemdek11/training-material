@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "Peptide Library Data Analysis",
     "format-version": "0.1",
-    "name": "Copy of PeptideDataAnalysis (imported from uploaded file)",
+    "name": "Copy of PeptideDataAnalysis",
     "steps": {
         "0": {
             "annotation": "",

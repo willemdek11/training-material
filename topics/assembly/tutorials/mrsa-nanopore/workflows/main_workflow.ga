@@ -22,7 +22,7 @@
   ],
   "format-version": "0.1",
   "license": "AGPL-3.0-or-later",
-  "name": "Genome Assembly of MRSA using Oxford Nanopore MinION Data (imported from uploaded file)",
+  "name": "Genome Assembly of MRSA using Oxford Nanopore MinION Data",
   "steps": {
     "0": {
       "annotation": "The data must be compressed for this pipeline to execute.",

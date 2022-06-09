@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "RNA-seq genes to pathways",
     "format-version": "0.1",
-    "name": "RNA Seq Genes To Pathways (imported from uploaded file)",
+    "name": "RNA Seq Genes To Pathways",
     "steps": {
         "0": {
             "annotation": "",

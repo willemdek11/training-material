@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "Quality Control",
     "format-version": "0.1",
-    "name": "GTN - Sequence Analyses - Quality Control (imported from uploaded file)",
+    "name": "GTN - Sequence Analyses - Quality Control",
     "steps": {
         "0": {
             "annotation": "",

@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "Mapping",
     "format-version": "0.1",
-    "name": "GTN - Sequence Analyses - Mapping (imported from uploaded file)",
+    "name": "GTN - Sequence Analyses - Mapping",
     "steps": {
         "0": {
             "annotation": "",
