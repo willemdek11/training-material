@@ -1,0 +1,75 @@
+name: Workflow testing
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 4am every month
+    - cron:  '0 4 1 * *'
+
+jobs:
+  setup:
+    name: Setup cache
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.7']
+    steps:
+    - uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install planemo
+    - name: Cache .cache/pip
+      uses: actions/cache@v2
+      id: cache-pip
+      with:
+        path: ~/.cache/pip
+        key: pip_${{ matrix.python-version }}
+    - name: Cache .planemo
+      uses: actions/cache@v2
+      id: cache-planemo
+      with:
+        path: ~/.planemo
+        key: planemo_${{ matrix.python-version }}
+
+  test-workflow:
+    name: Run workflow test
+    runs-on: ubuntu-latest
+    needs: setup
+    strategy:
+      matrix:
+        python-version: ['3.7']
+        server:
+         - usegalaxy.org
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Cache .cache/pip
+      uses: actions/cache@v2
+      id: cache-pip
+      with:
+        path: ~/.cache/pip
+        key: pip_${{ matrix.python-version }}
+    - name: Cache .planemo
+      uses: actions/cache@v2
+      id: cache-planemo
+      with:
+        path: ~/.planemo
+        key: planemo_${{ matrix.python-version }}
+
+    - name: Test Mapping workflow
+      run: |
+          planemo test \
+              --history_name "GTN: sequence-analysis/mapping: mapping.ga" \
+              --galaxy_url "https://usegalaxy.org" \
+              --galaxy_user_key "$GALAXY_ORG_API_KEY" \
+              --no_shed_install \
+              --engine external_galaxy \
+              "./topics/sequence-analysis/tutorials/mapping/workflows/mapping.ga";
